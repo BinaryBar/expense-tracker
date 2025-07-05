@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sushmoy's Expense Tracker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f9fafb, #e5e7eb);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #2d3748;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    #author {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    #balance {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1a202c;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 320px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    input, select, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #2b6cb0;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2c5282;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+      width: 340px;
+    }
+
+    li {
+      background: white;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      border-left: 5px solid #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    li.income { border-color: #38a169; }
+    li.expense { border-color: #e53e3e; }
+
+    .delete-btn {
+      background: #e53e3e;
+      border: none;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💸 Expense Tracker</h1>
+<div id="author">Built by Sushmoy</div>
+  <div id="balance">Balance: $0</div>
+
+  <form id="entry-form">
+    <input type="text" id="desc" placeholder="Description (e.g. Salary, Food)" required />
+    <input type="number" id="amount" placeholder="Amount in USD" required />
+    <select id="type">
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+    <button type="submit">➕ Add Entry</button>
+  </form>
+
+  <ul id="entry-list"></ul>
+
+  <script>
+    const form = document.getElementById('entry-form');
+    const list = document.getElementById('entry-list');
+    const balance = document.getElementById('balance');
+
+    let total = 0;
+
+    // Update balance display
+    function updateBalance() {
+      balance.textContent = `Balance: $${total.toFixed(2)}`;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const desc = document.getElementById('desc').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+      const type = document.getElementById('type').value;
+
+      if (isNaN(amount) || desc.trim() === '') return;
+
+      const li = document.createElement('li');
+      li.classList.add(type);
+      li.innerHTML = `
+        ${desc} - $${amount.toFixed(2)}
+        <button class="delete-btn">Delete</button>
+      `;
+
+      if (type === 'income') total += amount;
+      else total -= amount;
+
+      updateBalance();
+
+      li.querySelector('.delete-btn').addEventListener('click', () => {
+        if (type === 'income') total -= amount;
+        else total += amount;
+        updateBalance();
+        li.remove();
+      });
+
+      list.appendChild(li);
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
