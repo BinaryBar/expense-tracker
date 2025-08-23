@@ -15,7 +15,7 @@ Track your income and spending with a clean and modern interface—no backend re
 - Vanilla JavaScript
 
 ## 📷 Screenshot  
-![Expense Tracker Screenshot](image_2025-08-23_210602630.png)
+![Expense Tracker Screenshot](Screenshot.png)
 
 
 ## 🚀 Live Demo  
@@ -51,6 +51,7 @@ Track your income and spending with a clean and modern interface—no backend re
 ---
 
 Made with ❤️ by **Sushmoy Pal**
+
 
 
 
