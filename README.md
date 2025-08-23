@@ -17,9 +17,9 @@ Track your income and spending with a clean and modern interface—no backend re
 ## 📷 Screenshot  
 *(Add screenshot.png if you have one!)*
 
-## 🌐 Live Preview
-Hosted on GitHub Pages:  
-[🔗 Click here to view live](https://yourusername.github.io/expense-tracker)
+## 🚀 Live Demo  
+[Click here to view the app](https://binarybar.github.io/Expense-Tracker/)
+
 
 ## 📌 How to Use
 1. Clone or download the repo.
@@ -29,3 +29,4 @@ Hosted on GitHub Pages:
 ---
 
 Made with ❤️ by **Sushmoy Pal**
+
