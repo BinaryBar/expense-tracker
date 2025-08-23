@@ -18,7 +18,7 @@ Track your income and spending with a clean and modern interface—no backend re
 *(Add screenshot.png if you have one!)*
 
 ## 🚀 Live Demo  
-[Click here to view the app](https://binarybar.github.io/Expense-Tracker/)
+[Click here to view the app](https://binarybar.github.io/expense-tracker/)
 
 
 ## 📌 How to Use
@@ -29,4 +29,5 @@ Track your income and spending with a clean and modern interface—no backend re
 ---
 
 Made with ❤️ by **Sushmoy Pal**
+
 
